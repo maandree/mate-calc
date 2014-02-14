@@ -1,7 +1,8 @@
 dnl Process this file with autoconf to produce a configure script.
+AC_PREREQ(2.62)
+AC_INIT([mate-calc], [1.7.1], [http://mate-desktop.org])
 
-AC_INIT(configure.ac)
-AM_INIT_AUTOMAKE(mate-calc, 1.5.1)
+AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz])
 AC_CONFIG_HEADERS(config.h)
 AM_MAINTAINER_MODE
 MATE_MAINTAINER_MODE_DEFINES
@@ -20,10 +21,9 @@ dnl ###########################################################################
 
 GLIB_REQUIRED=2.30
 GIO_REQUIRED=2.25.10
-GTK_REQUIRED=2.18.0
 
 AC_MSG_CHECKING([which gtk+ version to compile against])
-AC_ARG_WITH([gtk+],
+AC_ARG_WITH([gtk],
             [AS_HELP_STRING([--with-gtk=2.0|3.0], [which gtk+ version to compile against (default: 2.0)])],
             [case "$with_gtk" in
                 2.0|3.0) ;;
@@ -71,7 +71,7 @@ dnl ###########################################################################
 dnl Documentation
 dnl ###########################################################################
 
-#YELP_HELP_INIT
+YELP_HELP_INIT
 
 dnl ###########################################################################
 dnl Files to generate
